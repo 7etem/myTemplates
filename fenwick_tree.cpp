@@ -37,8 +37,8 @@ struct fenwick{
         return res;
     }
 
-    int query(int l, int r){
-        return get_prefix(r) - get_prefix(l);
+    int query(int l, int r){ // [l, r]
+        return get_prefix(r) - get_prefix(l - 1);
     }
 };
 
@@ -59,7 +59,7 @@ void solve(){
         }
         else{
             int l, r; cin >> l >> r; l--; r--;
-            cout << ft.query(l - 1, r) << "\n";
+            cout << ft.query(l, r) << "\n";
         }
     }
 }

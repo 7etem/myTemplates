@@ -52,7 +52,8 @@ struct segmentTree{
     
     int query(int l, int r, int depth = 0, int i = 0){
         int res = neutral;
-        int li = i * (1 << (ln2 - depth)), ri = (i + 1) * (1 << (ln2 - depth)) - 1;
+        int size_chunk = (1 << (ln2 - depth));
+        int li = i * size_chunk, ri = (i + 1) * size_chunk - 1;
         if (li >= l && ri <= r){
             res = combine(res, arr2[depth][i]);
         }
@@ -97,3 +98,5 @@ signed main(){
     }
     return 0;
 }
+
+// https://cses.fi/problemset/task/1648
